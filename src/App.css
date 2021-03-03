@@ -1,38 +1,130 @@
-.App {
-  text-align: center;
+body {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+div.container {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 20px;
+    overflow: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+div.campaigns, div.shopping-list {
+    width: 50%; 
+    margin: 0 40px;
+    overflow: auto;
+    max-width: 500px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+button, .btn {   
+    background-color: steelblue;
+    color: white;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:focus {
+    outline: none;
 }
+
+.btn-add {
+    background-color: rgb(90, 197, 58);    
+}
+
+.btn-close {
+    background-color: rgb(236, 85, 14);
+}
+
+.btn-block {
+   width: 50%;
+}
+
+.form-wrapper {
+    margin: 0 auto;
+    /* text-align: center; */
+    padding: 20px;
+}
+
+
+.form-control div {
+    margin: 10px 0;
+    
+}
+
+.form-control div input, .form-control div label {
+    display: block;
+    padding-bottom: 10px;
+    line-height: 1;
+    width: 100%;
+}
+
+.dropdown {
+    width: 100px;
+    border: none;
+    cursor: pointer;
+    
+}
+
+.dropdown:focus {
+    outline: none;
+}
+
+.options {
+    border: 1px solid #ccc;
+    margin: 5px 10px;
+    position: absolute;
+    z-index: 3; 
+    background-color: white;
+}
+
+.option:hover {
+    background-color: #ccc;
+}
+
+.hide {
+    display: none;
+}
+
+.campaign-table {
+    text-align: center;
+}
+
+.campaign-table thead td{
+    font-weight: bold;
+    padding: 5px 10px;
+    background-color: rgb(212, 235, 209);
+}
+
+
+.shopping-list-list {
+    text-align: center;
+}
+
+.shopping-list-items {
+    list-style: none;
+}
+
+
+
+
+
+
+
+
+.highlight {
+    background-color: pink !important;
+}
+
+
