@@ -35,7 +35,14 @@ function App() {
     const newItem = {id, ...item};
     setShoppingList([...shoppingList, newItem]);
 
-    // axios.post(`https://campaign-tracker-huiyi.herokuapp.com/api/items`, {item})
+    // axios.post(`https://campaign-tracker-huiyi.herokuapp.com/api/items`, {
+    //   method: 'POST',
+    //   headers: {
+    //     "Accept":"*/*",
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: JSON.stringify(item)  
+    // })
     //   .then(response =>response.json())
     //   .then(data => setShoppingList([...shoppingList, data]))
   }
@@ -73,20 +80,15 @@ function App() {
   const matchItem = (name) => {
     const matchingCampaigns = campaigns.slice().filter((campaign) => campaign.name.toLowerCase().includes(name.toLowerCase()));
     setMatched(matchingCampaigns)
-    setCampaigns(campaigns)
+    setCampaigns(campaigns) 
   }
 
   const matchAll = (names) => {
-    console.log("Matching all the shopping items");
     let matchingCampaigns = []
- 
     names.map((name) => {
       matchingCampaigns.push(campaigns.slice().filter((campaign) => campaign.name.toLowerCase().includes(name.toLowerCase()))) ;
-      
-    })
-    
-    console.log(matchingCampaigns);
-    setMatched(matchingCampaigns)
+    }) 
+    setMatched(matchingCampaigns.flat(Infinity))
     setCampaigns(campaigns)
   }
 
@@ -124,7 +126,7 @@ function App() {
       <div className="shopping-list">
       <Header text="Shopping list" onAdd={showShoppingForm} showAdd={showAddShoppingItem} />
       {showAddShoppingItem && <AddShoppingItem onAdd={addShoppingItem}/>}
-      {shoppingList.length > 0 ? <ShoppingList list={shoppingList} onEdit={hanldeListEdit} onDelete={handleListDelete} onMatchAll={matchAll} onMatchItem={matchItem} onCancelMatch={cancelMatch}/> : "Click the Add button to add shopping item :)"}
+      {shoppingList.length > 0 ? <ShoppingList list={shoppingList} matched={matched} onEdit={hanldeListEdit} onDelete={handleListDelete} onMatchAll={matchAll} onMatchItem={matchItem} onCancelMatch={cancelMatch}/> : "Click the Add button to add shopping item :)"}
       </div>
     </div>
   );
